@@ -7,7 +7,7 @@
   <artifactId>wechat-mp-starter-demo</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Demo Application using WeChat Mp Starter</name>
+  <name>${artifactId}</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

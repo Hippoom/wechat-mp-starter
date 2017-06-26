@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wechat-mp-autoconfigure</artifactId>
   <packaging>jar</packaging>
-  <name>Spring Boot Auto Configuration For WeChat Mp Application</name>
+  <name>${artifactId}</name>
 
   <parent>
     <groupId>com.github.hippoom</groupId>
