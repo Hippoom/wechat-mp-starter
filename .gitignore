@@ -1,0 +1,10 @@
+#intelij
+.idea/
+*.iml
+
+#mvn
+target/
+.mvn/
+
+#local
+application-dev.yml

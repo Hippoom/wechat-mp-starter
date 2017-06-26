@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "wechat.mp.appId",
+      "type": "java.lang.String",
+      "description": "WeChat MP appId."
+    },
+    {
+      "name": "wechat.mp.appSecret",
+      "type": "java.lang.String",
+      "description": "WeChat MP appSecret."
+    },
+    {
+      "name": "wechat.mp.token",
+      "type": "java.lang.String",
+      "description": "WeChat MP token."
+    }
+  ]
+}
