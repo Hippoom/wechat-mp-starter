@@ -30,6 +30,12 @@
     <module>wechat-mp-starter-demo</module>
   </modules>
 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <pluginManagement>
