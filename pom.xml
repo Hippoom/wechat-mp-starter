@@ -9,6 +9,21 @@
   <packaging>pom</packaging>
   <name>Spring Boot Starter Parent For WeChat Mp Application</name>
 
+  <scm>
+    <connection>scm:git:git://github.com/hippoom/wechat-mp-starter.git</connection>
+    <developerConnection>
+      scm:git:ssh://github.com:hippoom/wechat-mp-starter.git
+    </developerConnection>
+    <url>http://github.com/hippoom/wechat-mp-starter/tree/master</url>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
   <modules>
     <module>wechat-mp-starter</module>
     <module>wechat-mp-autoconfigure</module>
