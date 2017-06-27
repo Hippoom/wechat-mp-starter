@@ -1,1 +1,1 @@
-# wechat-mp-starter
+# wechat-mp-starter [![Build Status](https://travis-ci.org/Hippoom/wechat-mp-starter.svg?branch=master)](https://travis-ci.org/Hippoom/wechat-mp-starter)
