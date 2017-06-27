@@ -94,7 +94,7 @@
           <executions>
             <execution>
               <id>findbugs</id>
-              <phase>package</phase>
+              <phase>test</phase>
               <goals>
                 <goal>check</goal>
               </goals>
