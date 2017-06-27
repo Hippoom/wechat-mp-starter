@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wechat-mp-starter</artifactId>
   <packaging>jar</packaging>
-  <name>${artifactId}</name>
+  <name>${project.artifactId}</name>
 
   <parent>
     <groupId>com.github.hippoom</groupId>
