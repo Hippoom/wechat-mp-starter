@@ -2,12 +2,12 @@ package com.github.hippoom.wechat.mp.autoconfigure.security.web;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.mp.api.WxMpService;
 import com.github.hippoom.wechat.mp.security.web.RestAuthenticationEntryPoint;
 import com.github.hippoom.wechat.mp.security.web.authentication.WeChatMpOAuth2AuthenticationProcessingFilter;
 import com.github.hippoom.wechat.mp.security.web.authentication.WeChatMpOAuth2AuthenticationSuccessHandler;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import me.chanjar.weixin.mp.api.WxMpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
