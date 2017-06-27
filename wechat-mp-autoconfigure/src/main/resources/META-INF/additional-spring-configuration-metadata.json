@@ -14,6 +14,11 @@
       "name": "wechat.mp.token",
       "type": "java.lang.String",
       "description": "WeChat MP token."
+    },
+    {
+      "name": "wechat.mp.aesKey",
+      "type": "java.lang.String",
+      "description": "WeChat MP AES key."
     }
   ]
 }

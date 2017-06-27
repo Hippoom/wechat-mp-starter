@@ -11,5 +11,6 @@ public class WeChatMpProperties {
     private String appId = "yourAppId";
     private String appSecret = "yourAppSecret";
     private String token = "aRandomString";
+    private String aesKey = "anotherRandomString";
 
 }

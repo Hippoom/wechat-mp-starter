@@ -31,6 +31,7 @@ public class WeChatMpConfiguration {
         configStorage.setAppId(weChatMpProperties.getAppId());
         configStorage.setSecret(weChatMpProperties.getAppSecret());
         configStorage.setToken(weChatMpProperties.getToken());
+        configStorage.setAesKey(weChatMpProperties.getAesKey());
         return configStorage;
     }
 
