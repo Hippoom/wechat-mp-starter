@@ -8,6 +8,8 @@
   <version>0.1.0</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
+  <description>Custom spring boot starter for WeChat MP application Edit</description>
+  <url>https://github.com/Hippoom/wechat-mp-starter</url>
 
   <scm>
     <connection>scm:git:git://github.com/hippoom/wechat-mp-starter.git</connection>
@@ -16,6 +18,16 @@
     </developerConnection>
     <url>http://github.com/hippoom/wechat-mp-starter/tree/master</url>
   </scm>
+
+  <developers>
+    <developer>
+      <id>hippoom</id>
+      <name>Yugang Zhou</name>
+      <organization>ThoughtWorksInc</organization>
+      <organizationUrl>https://www.thoughtworks.com/</organizationUrl>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
 
   <licenses>
     <license>
