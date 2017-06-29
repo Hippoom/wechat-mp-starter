@@ -13,11 +13,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfAuthenticationStrategy;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 @RequiredArgsConstructor
 public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
@@ -37,6 +39,9 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
         configureAuthorizeRequests(defaultHttp(http));
     }
 
+    /**
+     * subclass should override this to customize protected resources
+     */
     protected void configureAuthorizeRequests(HttpSecurity httpSecurity)
         throws Exception {
         // @formatter:off
@@ -62,7 +67,10 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
         // @formatter:on
     }
 
-    private AntPathRequestMatcher requireCsrfProtectionMatcher() {
+    /**
+     * subclass should override this to customize {@link CsrfConfigurer#requireCsrfProtectionMatcher(RequestMatcher)}
+     */
+    protected RequestMatcher requireCsrfProtectionMatcher() {
         return new AntPathRequestMatcher("/rel/**/me");
     }
 
