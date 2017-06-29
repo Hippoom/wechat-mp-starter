@@ -16,11 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller to handle WeChat inbound messages.
+ *
+ * @see WxMpMessageRouter
+ */
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/wechat/mp/webhooks/messaging")
-public class WeChatMpInboundMessageEndpoint {
+public class WeChatMpInboundMessageController {
 
     @NonNull
     private final WxMpService wxMpService;
@@ -28,6 +33,12 @@ public class WeChatMpInboundMessageEndpoint {
     @NonNull
     private final WxMpMessageRouter wxMpMessageRouter;
 
+    /**
+     * Handle authentication request from WeChat.
+     *
+     * @see <a href="http://admin.wechat.com/wiki/index.php?title=Message_Authentication">Message
+     * Authentication</a>
+     */
     @RequestMapping(method = GET)
     protected String handleAuthentication(@RequestParam String signature,
         @RequestParam String echostr,
@@ -41,6 +52,14 @@ public class WeChatMpInboundMessageEndpoint {
 
     }
 
+    /**
+     * Handle inbound messages from WeChat.
+     *
+     * @see <a href="http://admin.wechat.com/wiki/index.php?title=Common_Messages">Common
+     * Messages</a>
+     * @see <a href="http://admin.wechat.com/wiki/index.php?title=Event-based_Messages">Event Based
+     * Messages</a>
+     */
     @RequestMapping(method = POST)
     protected WxMpXmlOutMessage handleInboundMessage(@RequestBody String message) {
         log.debug("receiving {}", message);

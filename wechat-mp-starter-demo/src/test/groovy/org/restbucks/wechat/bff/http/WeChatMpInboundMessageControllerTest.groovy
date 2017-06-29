@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-class WeChatMpInboundMessageEndpointTest extends AbstractWebMvcTest {
+class WeChatMpInboundMessageControllerTest extends AbstractWebMvcTest {
 
     @Test
     void returns_echostr_to_get_authenticated_by_wechat_server() {
