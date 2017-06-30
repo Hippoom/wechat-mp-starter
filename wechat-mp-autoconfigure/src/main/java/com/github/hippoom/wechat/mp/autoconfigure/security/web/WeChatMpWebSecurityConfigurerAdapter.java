@@ -40,7 +40,7 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
     }
 
     /**
-     * subclass should override this to customize protected resources
+     * subclass should override this to customize protected resources.
      */
     protected void configureAuthorizeRequests(HttpSecurity httpSecurity)
         throws Exception {
@@ -68,7 +68,8 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
     }
 
     /**
-     * subclass should override this to customize {@link CsrfConfigurer#requireCsrfProtectionMatcher(RequestMatcher)}
+     * subclass should override this to
+     * customize {@link CsrfConfigurer#requireCsrfProtectionMatcher(RequestMatcher)}.
      */
     protected RequestMatcher requireCsrfProtectionMatcher() {
         return new AntPathRequestMatcher("/rel/**/me");
