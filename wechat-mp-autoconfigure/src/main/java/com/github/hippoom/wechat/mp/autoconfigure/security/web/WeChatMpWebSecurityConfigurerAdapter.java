@@ -41,9 +41,11 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
 
     /**
      * subclass should override this to customize protected resources.
+     *
+     * @param httpSecurity see {@link HttpSecurity}
+     * @throws Exception just throw
      */
-    protected void configureAuthorizeRequests(HttpSecurity httpSecurity)
-        throws Exception {
+    protected void configureAuthorizeRequests(HttpSecurity httpSecurity) throws Exception {
         // @formatter:off
         httpSecurity
             .antMatcher("/**").authorizeRequests()
@@ -70,6 +72,8 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
     /**
      * subclass should override this to
      * customize {@link CsrfConfigurer#requireCsrfProtectionMatcher(RequestMatcher)}.
+     *
+     * @return see {@link RequestMatcher}
      */
     protected RequestMatcher requireCsrfProtectionMatcher() {
         return new AntPathRequestMatcher("/rel/**/me");
@@ -101,7 +105,9 @@ public class WeChatMpWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
         filter
             .setAuthenticationSuccessHandler(new WeChatMpOAuth2AuthenticationSuccessHandler());
         filter.setSessionAuthenticationStrategy(sessionAuthenticationStrategy());
+
         return filter;
     }
     // @formatter:on
+
 }

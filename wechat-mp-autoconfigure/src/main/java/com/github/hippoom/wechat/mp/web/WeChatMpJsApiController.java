@@ -4,9 +4,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,13 +27,17 @@ public class WeChatMpJsApiController {
     private final WxMpService weChatMpService;
 
     /**
-     * see <a href="http://admin.wechat.com/wiki/index.php?title=JS_SDK_DOCUMENT
-     * #Step_3:_Inject_Correct_Authentication_Configuration_via_the_config_API">
-     * Inject Correct Authentication Configuration via the config API </a>.
+     * see <a href="http://admin.wechat.com/wiki/index.php?title=JS_SDK_DOCUMENT#Step_3:_Inject_Correct_Authentication_Configuration_via_the_config_API">
+     * Inject Correct Authentication Configuration via the config API
+     * </a>.
+     *
+     * @param url the URL to signature
+     * @return {@link WxJsapiSignature}
+     * @throws WxErrorException 5XX
      */
-    @SneakyThrows
     @RequestMapping(value = "/wechat/mp/js/config", method = GET)
-    protected WxJsapiSignature askForConfig(@RequestParam(name = "url") String url) {
+    protected WxJsapiSignature askForConfig(@RequestParam(name = "url") String url)
+        throws WxErrorException {
         return weChatMpService.createJsapiSignature(url);
     }
 

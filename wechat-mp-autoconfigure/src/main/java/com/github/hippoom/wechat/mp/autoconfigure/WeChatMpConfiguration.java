@@ -47,7 +47,11 @@ public class WeChatMpConfiguration {
      * href="https://github.com/Hippoom/wechat-mp-starter/wiki/Autowiring-WxMpConfigStorage">wiki</a>
      * for detail.
      *
+     * @param weChatMpProperties see {@link WeChatMpProperties}
+     * @return see {@link WxMpConfigStorage} and {@link WxMpInMemoryConfigStorage}
+     *
      * @see WxMpConfigStorage
+     * @see WxMpInMemoryConfigStorage
      * @see WeChatMpProperties
      */
     @Bean
@@ -66,6 +70,9 @@ public class WeChatMpConfiguration {
      * href="https://github.com/Hippoom/wechat-mp-starter/wiki/Autowiring-WxMpService">wiki</a>
      * for detail.
      *
+     * @param wxMpConfigStorage {@link WxMpConfigStorage}
+     * @return {@link WxMpService}
+     *
      * @see WxMpService
      */
     @Bean
@@ -79,6 +86,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpKefuService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpKefuService}
+     *
      * @see WxMpKefuService
      */
     @Bean
@@ -88,6 +98,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpUserService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpUserService}
      *
      * @see WxMpUserService
      */
@@ -99,6 +112,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpUserTagService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpUserTagService}
+     *
      * @see WxMpUserTagService
      */
     @Bean
@@ -108,6 +124,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpMenuService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpMenuService}
      *
      * @see WxMpMenuService
      */
@@ -119,6 +138,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpMaterialService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpMaterialService}
+     *
      * @see WxMpMaterialService
      */
     @Bean
@@ -128,6 +150,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpQrcodeService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpQrcodeService}
      *
      * @see WxMpQrcodeService
      */
@@ -139,6 +164,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpTemplateMsgService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpTemplateMsgService}
+     *
      * @see WxMpTemplateMsgService
      */
     @Bean
@@ -148,6 +176,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpUserBlacklistService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpUserBlacklistService}
      *
      * @see WxMpUserBlacklistService
      */
@@ -159,6 +190,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpCardService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpCardService}
+     *
      * @see WxMpCardService
      */
     @Bean
@@ -168,6 +202,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpDeviceService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpDeviceService}
      *
      * @see WxMpDeviceService
      */
@@ -179,6 +216,9 @@ public class WeChatMpConfiguration {
     /**
      * Default {@link WxMpDataCubeService} provider.
      *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpDataCubeService}
+     *
      * @see WxMpDataCubeService
      */
     @Bean
@@ -188,6 +228,9 @@ public class WeChatMpConfiguration {
 
     /**
      * Default {@link WxMpStoreService} provider.
+     *
+     * @param wxMpService {@link WxMpService}
+     * @return {@link WxMpStoreService}
      *
      * @see WxMpStoreService
      */

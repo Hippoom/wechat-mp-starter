@@ -36,6 +36,12 @@ public class WeChatMpInboundMessageController {
     /**
      * Handle authentication request from WeChat.
      *
+     * @param signature given by WeChat MP webhook
+     * @param echostr given by WeChat MP webhook
+     * @param timestamp given by WeChat MP webhook
+     * @param nonce given by WeChat MP webhook
+     * @param request {@link HttpServletRequest}
+     * @return echostr if authenticated, "invalid authentication request" if failure
      * @see <a href="http://admin.wechat.com/wiki/index.php?title=Message_Authentication">Message
      * Authentication</a>
      */
@@ -55,6 +61,8 @@ public class WeChatMpInboundMessageController {
     /**
      * Handle inbound messages from WeChat.
      *
+     * @param message the payload of inbound message
+     * @return {@link WxMpXmlOutMessage}
      * @see <a href="http://admin.wechat.com/wiki/index.php?title=Common_Messages">Common
      * Messages</a>
      * @see <a href="http://admin.wechat.com/wiki/index.php?title=Event-based_Messages">Event Based
