@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class WeChatMpInboundMessageConfiguration extends WeChatMpInboundMessagingConfigurerAdapter {
 
     private final QrCodeScannedEventHandler qrCodeScannedEventHandler;
-    private final NewSubscribedEventHandler newSubscribedEventHandler;
+    private final DefaultInboundMessageHandler defaultInboundMessageHandler;
 
     @Override
     protected void configure(WxMpMessageRouter router) {
@@ -21,6 +21,11 @@ public class WeChatMpInboundMessageConfiguration extends WeChatMpInboundMessagin
                 .msgType(WxConsts.XML_MSG_EVENT)
                 .event(WxConsts.EVT_SCAN).event(WxConsts.EVT_SUBSCRIBE)
                 .handler(qrCodeScannedEventHandler)
+            .next();
+
+        router
+            .rule()
+                .handler(defaultInboundMessageHandler)
             .end();
         // @formatter:on
     }
