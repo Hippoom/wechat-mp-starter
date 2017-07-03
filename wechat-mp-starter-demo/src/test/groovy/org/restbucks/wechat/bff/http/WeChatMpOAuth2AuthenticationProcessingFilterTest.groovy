@@ -1,9 +1,9 @@
 package org.restbucks.wechat.bff.http
 
 import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessToken
-import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessTokenFixture
 import org.junit.Test
 
+import static com.github.hippoom.wechat.mp.test.fixture.WxMpOAuth2AccessTokenFixture.aWxMpOAuth2AccessToken
 import static org.mockito.BDDMockito.given
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
@@ -19,7 +19,7 @@ class WeChatMpOAuth2AuthenticationProcessingFilterTest extends AbstractWebMvcTes
         String code = "codeToExchangeWeChatUserAccessToken"
         String plainUrl = "http://www.example.com/index.html?a=b#/route"
         String state = Base64.getUrlEncoder().encodeToString(plainUrl.getBytes("UTF-8"))
-        WxMpOAuth2AccessToken accessToken = new WxMpOAuth2AccessTokenFixture().build()
+        WxMpOAuth2AccessToken accessToken = aWxMpOAuth2AccessToken().build()
 
         given(wxMpService.oauth2getAccessToken(code))
                 .willReturn(accessToken)
