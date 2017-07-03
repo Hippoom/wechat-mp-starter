@@ -69,9 +69,11 @@ public class WeChatMpInboundMessageController {
      * Messages</a>
      */
     @RequestMapping(method = POST)
-    protected WxMpXmlOutMessage handleInboundMessage(@RequestBody String message) {
+    protected String handleInboundMessage(@RequestBody String message) {
         log.debug("receiving {}", message);
-        return wxMpMessageRouter.route(WxMpXmlMessage.fromXml(message));
+        WxMpXmlOutMessage outboundMessage = wxMpMessageRouter
+            .route(WxMpXmlMessage.fromXml(message));
+        return outboundMessage == null ? null : outboundMessage.toXml();
     }
 
 }

@@ -12,10 +12,17 @@ public class WeChatMpInboundMessageConfiguration extends WeChatMpInboundMessagin
 
     private final QrCodeScannedEventHandler qrCodeScannedEventHandler;
     private final DefaultInboundMessageHandler defaultInboundMessageHandler;
+    private final TextInboundMessageRepeater textInboundMessageRepeater;
 
     @Override
     protected void configure(WxMpMessageRouter router) {
         // @formatter:off
+        router
+            .rule().async(false)
+                .msgType(WxConsts.XML_MSG_TEXT)
+                .handler(textInboundMessageRepeater)
+            .end();
+
         router
             .rule()
                 .msgType(WxConsts.XML_MSG_EVENT)

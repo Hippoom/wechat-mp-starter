@@ -1,6 +1,7 @@
 package org.restbucks.wechat.bff.http
 
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage
+import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage
 import org.junit.Test
 
 import static org.hamcrest.Matchers.equalTo
@@ -13,6 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath
 
 class WeChatMpInboundMessageControllerTest extends AbstractWebMvcTest {
 
@@ -34,6 +36,8 @@ class WeChatMpInboundMessageControllerTest extends AbstractWebMvcTest {
                 )
                 .andDo(print())
 	            .andExpect(status().isOk())
+                // make sure the message is in XML,
+        //      // see https://github.com/Hippoom/wechat-mp-starter/issues/1
                 .andExpect(content().string("echostr"))
         // @formatter:on
     }
@@ -61,7 +65,7 @@ class WeChatMpInboundMessageControllerTest extends AbstractWebMvcTest {
     }
 
     @Test
-    void when_receives_qrcode_scanned_event() {
+    void returns_nothing() {
 
         String payload = """
             <xml>
@@ -86,5 +90,33 @@ class WeChatMpInboundMessageControllerTest extends AbstractWebMvcTest {
         verify(wxMpMessageRouter).route(refEq(WxMpXmlMessage.fromXml(payload)))
     }
 
+    @Test
+    void replies_message() {
+
+        String payload = """
+            <xml>
+                <ToUserName><![CDATA[toUser]]></ToUserName>
+                <FromUserName><![CDATA[FromUser]]></FromUserName>
+                <CreateTime>123456789</CreateTime>
+                <MsgType><![CDATA[event]]></MsgType>
+                <Event><![CDATA[subscribe]]></Event>
+                <EventKey><![CDATA[qrscene_123123]]></EventKey>
+                <Ticket><![CDATA[TICKET]]></Ticket>
+            </xml>
+        """
+        given(wxMpMessageRouter.route(refEq(WxMpXmlMessage.fromXml(payload))))
+                .willReturn(WxMpXmlOutMessage.TEXT().build())
+
+        // @formatter:off
+        this.mockMvc.perform(
+                    post("/wechat/mp/webhooks/messaging")
+                    .content(payload)
+                )
+                .andDo(print())
+	            .andExpect(status().isOk())
+                .andExpect(xpath("/xml/MsgType").exists())
+        // @formatter:on
+
+    }
 
 }
