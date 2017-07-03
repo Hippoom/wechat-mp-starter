@@ -5,14 +5,14 @@ Custom spring boot starter for WeChat MP application
 
 ## Latest Release
 
-**0.2.1**
+**0.3.0**
 
 You can download the binary from [Maven Central Repository](http://mvnrepository.com/artifact/com.github.hippoom/wechat-mp-starter):
 
 - Gradle
 
 ```groovy
-    compile 'com.github.hippoom:wechat-mp-starter:0.2.1'
+    compile 'com.github.hippoom:wechat-mp-starter:0.3.0'
 ```
 
 - Maven
@@ -21,7 +21,7 @@ You can download the binary from [Maven Central Repository](http://mvnrepository
     <dependency>
     	<groupId>com.github.hippoom</groupId>
     	<artifactId>wechat-mp-starter</artifactId>
-    	<version>0.2.1</version>
+    	<version>0.3.0</version>
     </dependency>
 ```
 
