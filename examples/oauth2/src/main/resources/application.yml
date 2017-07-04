@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: "wechat-mp-starter-examples-oauth2"
+
+app:
+  publicBaseUri: http(s)://your.domain(:port)
+
+wechat:
+  mp:
+    appId: <your-app-id>
+    appSecret: <your-app-secret>
+    token: <your-webhook-token>
+    appBaseUri: ${app.publicBaseUri}
